@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <!-- Logo and Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#F5D07A"
+            android:layout_marginBottom="24dp">
+
+            <!-- Replace with an existing drawable or add ic_logo to drawable folder -->
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inquiry Form"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+
+            <Button
+                android:id="@+id/menuButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="0dp"
+                android:text=""
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+            <!-- Sales Rep -->
+            <TextView
+                android:id="@+id/salesRepText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sales Rep."
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dp"/>
+
+            <!-- Client -->
+            <EditText
+                android:id="@+id/clientEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Client"
+                android:padding="16dp"
+
+                android:layout_marginBottom="7dp"
+                android:inputType="text"
+                android:textColorHint="#111111"
+                android:textColor="@android:color/black" />
+
+            <!-- Part Type and Material -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="7dp"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/partEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Part Type"
+                    android:padding="12dp"
+
+                    android:inputType="text"
+                    android:textColorHint="#111111"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/materialEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Material"
+                    android:padding="12dp"
+
+                    android:layout_marginStart="16dp"
+                    android:inputType="text"
+                    android:textColorHint="#111111"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="7dp"
+                android:padding="5dp">
+
+                <EditText
+                    android:id="@+id/annualDemandEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:hint="Annual Demand"
+                    android:padding="12dp"
+
+                    android:inputType="text"
+                    android:textColorHint="#111111"
+                    android:textColor="@android:color/black" />
+
+                <Button
+                    android:id="@+id/changeMaterialButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="1"
+                    android:text="Material Change"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Description -->
+            <EditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Description"
+                android:padding="12dp"
+                android:background="@drawable/edittext_background"
+                android:layout_marginBottom="7dp"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:textColorHint="#111111"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="7dp">
+
+                    <Button
+                        android:id="@+id/digitizationButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:text="Digitization"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/repeatOrderButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:text="Repeat Order"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/assemblyButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:text="Assembly"
+                        android:textColor="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginBottom="7dp">
+
+                    <Button
+                        android:id="@+id/machiningButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:text="Machining"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/balancingButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="0dp"
+                        android:text="Balancing"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/balancingEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="10dp"
+                        android:hint="RPM"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="6"
+                    android:layout_marginBottom="7dp">
+
+                    <Button
+                        android:id="@+id/drawingButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="2D Drawings"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/stpButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="STP"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/stlButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="STL"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/othEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:hint="Others"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="6"
+                    android:layout_marginBottom="7dp">
+
+                    <Button
+                        android:id="@+id/cr1Button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CR1"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/cr2Button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:text="CR2"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/cr3Button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="CR3"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/additionalTestingEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:hint="Additional Testings"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="6"
+                    android:layout_marginBottom="7dp">
+
+                    <EditText
+                        android:id="@+id/operatingConditionsEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:hint="Operating Conditions"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/mediumEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:hint="Medium"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/coatingEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:hint="Coating"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+
+                    <EditText
+                        android:id="@+id/deliveryScopeEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="0dp"
+                        android:layout_weight="1"
+                        android:hint="Delivery Scope"
+                        android:padding="12dp"
+
+                        android:inputType="text"
+                        android:textColorHint="#111111"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+            </LinearLayout>
+
+             <Button
+            android:id="@+id/clearButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clear all fields "
+            android:background="@drawable/button_background"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="7dp" />
+
+            <Button
+                android:id="@+id/photoButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Take Photo"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="7dp" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+</ScrollView>

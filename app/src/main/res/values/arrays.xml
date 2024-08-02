@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_options">
+        <item>Impeller</item>
+        <item>Valve</item>
+        <item>Seat</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="cad_file_options">
+        <item>STP</item>
+        <item>STL</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="material_options">
+        <item>Material 1</item>
+        <item>Material 2</item>
+        <item>Material 3</item>
+    </string-array>
+    <string-array name="tolerances_options">
+        <item>As per the drawing</item>
+        <item>Specify</item>
+    </string-array>
+    <string-array name="balancing_speed_options">
+        <item>Low Speed</item>
+        <item>High Speed</item>
+    </string-array>
+    <string-array name="coating_material_options">
+        <item>Material 1</item>
+        <item>Material 2</item>
+        <item>Material 3</item>
+    </string-array>
+    <string-array name="criticality_options">
+        <item>CR1</item>
+        <item>CR2</item>
+        <item>CR3</item>
+    </string-array>
+</resources>
