@@ -39,6 +39,7 @@
         <activity android:name=".MainActivity" android:exported="true" />
         <activity android:name=".LoginActivity" android:exported="true" />
         <activity android:name=".LoginActivityNoPref" android:exported="true" />
+        <activity android:name=".ConversionActivity" android:exported="true" />
 
 
 

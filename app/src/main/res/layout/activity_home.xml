@@ -3,77 +3,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#F5D07A"
-        android:orientation="vertical">
-        <!-- Add any additional content for the bottom half here -->
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/newInquiryButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Inquiry"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:background="@drawable/button_background"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="0dp">
 
-        <Button
-            android:id="@+id/conversionTableButton"
+            <!-- Replace with an existing drawable or add ic_logo to drawable folder -->
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#EEEEEE"
+                android:textSize="24sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Conversion Table"
-            android:background="@drawable/button_background"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_weight="1"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/weightCalculatorButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Weight Calculator"
-            android:background="@drawable/button_background"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
+            <Button
+                android:id="@+id/newInquiryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Inquiry"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"/>
 
-        <Button
-            android:id="@+id/materialDatasheetButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Material Datasheet"
-            android:background="@drawable/button_background"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
+            <Button
+                android:id="@+id/conversionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Conversion Table"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"/>
 
-        <Button
-            android:id="@+id/testingDetailsButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Testing Details"
-            android:background="@drawable/button_background"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
-        <Button
-            android:id="@+id/postProcessingButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Post Processing"
-            android:background="@drawable/button_background"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="16dp"/>
+            <Button
+                android:id="@+id/weightCalculatorButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight Calculator"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"/>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/materialDatasheetButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Material Datasheet"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"/>
 
+            <Button
+                android:id="@+id/testingDetailsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Testing Details"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"/>
+            <Button
+                android:id="@+id/postProcessingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Processing"
+                android:background="@drawable/button_background"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="16dp"/>
+
+
+        </LinearLayout>
 </LinearLayout>

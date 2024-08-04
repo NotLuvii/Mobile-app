@@ -1,0 +1,22 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <solid android:color="#2c5ab0"/>
+                    <corners android:radius="15dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <item>
+                <bitmap
+                    android:src="@drawable/setting1"
+                    android:gravity="fill" />
+            </item>
+        </layer-list>
+
+    </item>
+</selector>

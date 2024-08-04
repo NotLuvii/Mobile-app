@@ -297,6 +297,29 @@ class MainActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.coatingEditText).setText("")
         findViewById<EditText>(R.id.deliveryScopeEditText).setText("")
 
+        val buttonsToUnselect = listOf<Button>(
+            findViewById(R.id.digitizationButton),
+            findViewById(R.id.changeMaterialButton),
+            findViewById(R.id.repeatOrderButton),
+            findViewById(R.id.drawingButton),
+            findViewById(R.id.stpButton),
+            findViewById(R.id.stlButton),
+            findViewById(R.id.machiningButton),
+            findViewById(R.id.balancingButton),
+            findViewById(R.id.assemblyButton),
+            findViewById(R.id.cr1Button),
+            findViewById(R.id.cr2Button),
+            findViewById(R.id.cr3Button)
+        )
+
+        // Unselect all buttons
+        buttonsToUnselect.forEach { button ->
+            updateButtonState(button, false)
+        }
+
+        // Reset the selectedCrButton and selectedCrText
+        selectedCrButton = null
+        selectedCrText = ""
 
 
     }

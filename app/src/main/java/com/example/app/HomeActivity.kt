@@ -20,5 +20,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val conversionButton = findViewById<Button>(R.id.conversionButton)
+        conversionButton.setOnClickListener {
+            val intent = Intent(this, ConversionActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
