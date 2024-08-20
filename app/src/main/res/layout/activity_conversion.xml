@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
@@ -16,7 +16,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:background="@drawable/button_background"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="0dp">
 
             <!-- Replace with an existing drawable or add ic_logo to drawable folder -->
             <ImageView
@@ -33,17 +33,21 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp" />
 
-<!--            <Button-->
-<!--                android:id="@+id/menuButton"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginBottom="0dp"-->
-<!--                android:text=""-->
-<!--                android:textColor="@android:color/black" />-->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/homeButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/back_button_background"
+                android:gravity="center_vertical" />
         </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -60,9 +64,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="AED"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="24dp" />
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:padding="4dp" />
 
             <EditText
                 android:id="@+id/aedEditText"
@@ -83,9 +87,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CAD"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="24dp" />
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:padding="4dp" />
 
             <EditText
                 android:id="@+id/cadEditText"
@@ -106,9 +110,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="USD"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="24dp" />
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:padding="4dp" />
 
             <EditText
                 android:id="@+id/usdEditText"
@@ -129,9 +133,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="EUR"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="24dp" />
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:padding="4dp" />
 
             <EditText
                 android:id="@+id/eurEditText"
@@ -152,9 +156,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SAR"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="24dp" />
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:padding="4dp" />
 
             <EditText
                 android:id="@+id/sarEditText"
@@ -175,9 +179,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="KD"
-                android:textSize="24sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="24dp" />
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:padding="4dp" />
 
             <EditText
                 android:id="@+id/kdEditText"
@@ -188,5 +192,348 @@
                 android:inputType="numberDecimal" />
         </LinearLayout>
     </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:orientation="horizontal"
+            android:background="@drawable/button_background"
+            android:layout_marginBottom="0dp">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vol (ccm.)"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:padding="4dp" />
+
+                <EditText
+                    android:id="@+id/volumeEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:layout_marginBottom="0dp"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Material"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:padding="4dp" />
+
+                <Spinner
+                    android:id="@+id/materialSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:layout_marginBottom="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weight (Kgs)"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    android:padding="4dp" />
+
+                <EditText
+                    android:id="@+id/weightEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:padding="12dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:orientation="horizontal"
+            android:background="@drawable/button_background"
+            android:layout_marginBottom="0dp">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <!-- TableLayout for the Markup and Margin values -->
+            <TableLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:padding="2dp"
+                android:layout_weight="1">
+
+                <!-- Header Row -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Markup %"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:padding="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Margin %"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:padding="4dp" />
+                </TableRow>
+
+                <!-- Data Rows -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16.67"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="33.33"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="75"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="42.86"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="120"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="54.55"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="200"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="66.67"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="250"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="71.43"
+                        android:padding="4dp" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="500"
+                        android:padding="4dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="83.33"
+                        android:padding="4dp" />
+                </TableRow>
+            </TableLayout>
+
+            <!-- Converter Section -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingStart="0dp"
+                android:layout_weight="1">
+
+                <!-- Inches to MM and CM Converter -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:paddingBottom="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="Inches"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/inputInches"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter inches"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        android:id="@+id/outputMM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="MM: " />
+
+                    <TextView
+                        android:id="@+id/outputCM"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:text="CM: " />
+                </LinearLayout>
+
+                <!-- Feet to CM and Meters Converter -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    android:paddingTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="8dp"
+                        android:text="Feet"
+                        android:textColor="#000"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/inputFeet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter feet"
+                        android:inputType="numberDecimal" />
+
+                    <TextView
+                        android:id="@+id/outputCMFeet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="CM: " />
+
+                    <TextView
+                        android:id="@+id/outputMeters"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:text="Meters: " />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

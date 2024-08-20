@@ -27,5 +27,13 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val testingDetailsButton = findViewById<Button>(R.id.testingDetailsButton)
+        testingDetailsButton.setOnClickListener {
+            val intent = Intent(this, TestingActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 }

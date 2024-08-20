@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
     val unselectedColor = Color.parseColor("#DEDEDE")
     private var selectedCrButton: Button? = null
     var selectedCrText = ""
+    private var selectedTestingButton: Button? = null
+    var selectedTestingText = ""
     var userEmail: String? = null
     var userName: String? = null
 
@@ -94,8 +96,13 @@ class MainActivity : AppCompatActivity() {
         val photoButton = findViewById<Button>(R.id.photoButton)
         val submitButton = findViewById<Button>(R.id.submitButton)
 
+        val apiButton = findViewById<Button>(R.id.apiButton)
+        val dnvButton = findViewById<Button>(R.id.dnvButton)
+
 
         val singleSelectButtons = listOf(cr1Button, cr2Button, cr3Button)
+
+        val singleSelectButtons1 = listOf(apiButton, dnvButton)
 
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -132,6 +139,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        singleSelectButtons1.forEach { button ->
+            button.setBackgroundColor(unselectedColor)
+            button.setOnClickListener {
+                if (selectedTestingButton == button) {
+                    // If the selected button is pressed again, unselect it
+                    updateButtonState(button, false)
+                    selectedTestingButton = null
+                    selectedTestingText = ""
+                } else {
+                    // Select the new button and unselect the previous one
+                    selectedTestingButton?.let { updateButtonState(it, false) }
+                    selectedTestingButton = button
+                    selectedTestingText = button.text.toString() // Store the selected button text
+                    updateButtonState(button, true)
+                }
+            }
+        }
 
         val categories = resources.getStringArray(R.array.category_options)
         val cadFiles = resources.getStringArray(R.array.cad_file_options)
@@ -309,7 +333,9 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.assemblyButton),
             findViewById(R.id.cr1Button),
             findViewById(R.id.cr2Button),
-            findViewById(R.id.cr3Button)
+            findViewById(R.id.cr3Button),
+            findViewById(R.id.apiButton),
+            findViewById(R.id.dnvButton)
         )
 
         // Unselect all buttons
@@ -368,6 +394,7 @@ class MainActivity : AppCompatActivity() {
         var stp = ""
         var stl = ""
         var oth = ""
+        var testingStandard = ""
         var machining = ""
         var balancing = ""
 
@@ -419,6 +446,7 @@ class MainActivity : AppCompatActivity() {
             Machining: $machining
             Balancing: $balancing
             Criticality: $selectedCrText
+            Testing Standard: $selectedTestingText
             Assembly: $assembly
 
             Annual Demand: $annualDemand

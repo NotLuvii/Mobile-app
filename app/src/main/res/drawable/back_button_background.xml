@@ -1,0 +1,12 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+            <item>
+                <bitmap
+                    android:src="@drawable/back1"
+                    android:gravity="fill" />
+            </item>
+        </layer-list>
+
+    </item>
+</selector>

@@ -1,24 +1,38 @@
 package com.example.app
+
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import java.text.DecimalFormat
 
 class ConversionActivity : AppCompatActivity() {
 
+    // Currency Conversion Elements
     private lateinit var aedEditText: EditText
     private lateinit var cadEditText: EditText
     private lateinit var usdEditText: EditText
     private lateinit var eurEditText: EditText
     private lateinit var sarEditText: EditText
     private lateinit var kdEditText: EditText
+
+    // Density and Volume Calculation Elements
+    private lateinit var volumeEditText: EditText
+    private lateinit var resultEditText: EditText
+    private lateinit var materialSpinner: Spinner
+
+    // Unit Conversion Elements
+    private lateinit var inputInches: EditText
+    private lateinit var outputMM: TextView
+    private lateinit var outputCM: TextView
+    private lateinit var inputFeet: EditText
+    private lateinit var outputCMFeet: TextView
+    private lateinit var outputMeters: TextView
 
     private val conversionRates = mapOf(
         Currency.AED to 3.67,
@@ -27,6 +41,18 @@ class ConversionActivity : AppCompatActivity() {
         Currency.EUR to 0.85,
         Currency.SAR to 3.75,
         Currency.KD to 0.30
+    )
+
+    private val densities = mapOf(
+        "MSI" to 7.85,
+        "SS-316L" to 8.0,
+        "SS-420" to 7.75,
+        "SS-17-4PH" to 7.8,
+        "Ti6A14V-G23" to 4.43,
+        "Cobalt Chrome MP 1" to 8.4,
+        "IN-718" to 8.19,
+        "IN-625" to 8.44,
+        "AlSi10Mg" to 2.7
     )
 
     private lateinit var aedTextWatcher: TextWatcher
@@ -40,6 +66,7 @@ class ConversionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversion)
 
+        // Initialize Currency Conversion Fields
         aedEditText = findViewById(R.id.aedEditText)
         cadEditText = findViewById(R.id.cadEditText)
         usdEditText = findViewById(R.id.usdEditText)
@@ -47,8 +74,68 @@ class ConversionActivity : AppCompatActivity() {
         sarEditText = findViewById(R.id.sarEditText)
         kdEditText = findViewById(R.id.kdEditText)
 
-        setCurrencyTextWatchers()
+        // Initialize Material Density Calculation Fields
+        volumeEditText = findViewById(R.id.volumeEditText)
+        resultEditText = findViewById(R.id.weightEditText)
+        materialSpinner = findViewById(R.id.materialSpinner)
 
+        // Initialize Unit Conversion Fields
+        inputInches = findViewById(R.id.inputInches)
+        outputMM = findViewById(R.id.outputMM)
+        outputCM = findViewById(R.id.outputCM)
+        inputFeet = findViewById(R.id.inputFeet)
+        outputCMFeet = findViewById(R.id.outputCMFeet)
+        outputMeters = findViewById(R.id.outputMeters)
+
+        // Set up all the conversion mechanisms
+        setCurrencyTextWatchers()
+        setupMaterialSpinner()
+        setupUnitConverters()
+
+
+        findViewById<Button>(R.id.homeButton).setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    private fun setupMaterialSpinner() {
+        val materials = densities.keys.toTypedArray()
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, materials)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        materialSpinner.adapter = adapter
+
+        materialSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                calculateAndSetResult()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        volumeEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                calculateAndSetResult()
+            }
+        })
+    }
+
+    private fun calculateAndSetResult() {
+        val selectedMaterial = materialSpinner.selectedItem.toString()
+        val volume = volumeEditText.text.toString().toDoubleOrNull()
+        val density = densities[selectedMaterial]
+        val formatter = DecimalFormat("#.###")
+
+        if (volume != null && density != null) {
+            val result = formatter.format(volume * density / 1000)
+            resultEditText.setText(result.toString())
+        } else {
+            resultEditText.setText("")
+        }
     }
 
     private fun setCurrencyTextWatchers() {
@@ -141,7 +228,46 @@ class ConversionActivity : AppCompatActivity() {
         AED, CAD, USD, EUR, SAR, KD
     }
 
+    private fun setupUnitConverters() {
+        inputInches.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val inches = s.toString().toDoubleOrNull()
+                if (inches != null) {
+                    outputMM.text = "MM:" + (inches * 25.4).formatAsString()
+                    outputCM.text = "CM: " + (inches * 2.54).formatAsString()
+                } else {
+                    outputMM.text = "MM: "
+                    outputCM.text = "CM: "
+                }
+            }
+        })
+
+        inputFeet.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val feet = s.toString().toDoubleOrNull()
+                if (feet != null) {
+                    outputCMFeet.text = "CM: " + (feet * 30.48).formatAsString()
+                    outputMeters.text = "M: " + (feet * 0.3048).formatAsString()
+                } else {
+                    outputCMFeet.text = "CM: "
+                    outputMeters.text = "M: "
+                }
+            }
+        })
+    }
+
+    private fun Double.formatAsString(): String {
+        val formatter = DecimalFormat("#.###")
+        return formatter.format(this)
+    }
 
     private fun showPopupMenu(view: View) {
         val popup = PopupMenu(this, view)
@@ -149,7 +275,6 @@ class ConversionActivity : AppCompatActivity() {
         popup.setOnMenuItemClickListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.menu_home -> {
-                    // Handle Home action
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -160,7 +285,6 @@ class ConversionActivity : AppCompatActivity() {
         }
         popup.show()
     }
-
 
     override fun onBackPressed() {
         val intent = Intent(this, HomeActivity::class.java)

@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 
 class LoginActivity : AppCompatActivity() {
 
@@ -15,6 +16,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        val menuButton = findViewById<Button>(R.id.menuButton)
+        menuButton.visibility = View.GONE
 
         sharedPreferences = getSharedPreferences("com.example.app", MODE_PRIVATE)
 

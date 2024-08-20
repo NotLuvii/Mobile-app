@@ -24,6 +24,8 @@ class LoginActivityNoPref : AppCompatActivity() {
 
         val welcomeEditText = findViewById<TextView>(R.id.welcomeEditText)
 
+        val menuButton = findViewById<Button>(R.id.menuButton)
+
         welcomeEditText.text = ""
 
         configureEmailButton.setOnClickListener {
@@ -50,6 +52,10 @@ class LoginActivityNoPref : AppCompatActivity() {
                     nameEditText.error = "Name is required"
                 }
             }
+        }
+
+        menuButton.setOnClickListener {
+            onBackPressed()
         }
     }
     override fun onBackPressed() {
