@@ -1,6 +1,7 @@
 # Mobile App
 
-This project is a mobile application developed as part of the CS2063 course at the University of New Brunswick. It demonstrates the implementation of various features and functionalities pertinent to mobile app development.
+This project is a personal mobile application demonstrating various features and functionalities pertinent to mobile app development.
+
 
 ## Features
 
